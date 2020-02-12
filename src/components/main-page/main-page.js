@@ -1,9 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './main-page.css';
+import Beer from '../beer/beer';
 
 class MainPage extends React.Component {
+    
+    makeBeers() {
+        let beers = [
+            {
+                name: 'Beer 1',
+                rating: 4.25,
+                quantity: 10
+            },
+            {
+                name: 'Beer 2',
+                rating: 4.17,
+                quantity: 7
+            },
+            {
+                name: 'Beer 3',
+                rating: 4.49,
+                quantity: 4
+            }
+        ];
+
+        return beers.map(beer => 
+            <Beer 
+                name={beer.name}
+                rating={beer.rating}
+                quantity={beer.quantity}
+            />);
+    }
+    
     render() {
+        let beers = this.makeBeers();
+        
         return (
             <div className='user-login-page'>
                 <Link to='/'>
@@ -52,7 +83,8 @@ class MainPage extends React.Component {
                     </div>
 
                     <section className="beers-container">
-                        <div className="beer">
+                        {beers}
+                        {/* <div className="beer">
                             <p>Beer 1</p>
                             <p>4.25</p>
                             <p>x10</p>
@@ -68,7 +100,7 @@ class MainPage extends React.Component {
                             <p>Beer 3</p>
                             <p>4.49</p>
                             <p>x4</p>
-                        </div>
+                        </div> */}
                     </section>
 
                     <Link to='/add-form'>
