@@ -1,0 +1,24 @@
+.page-title {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.register-form {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user-info {
+    border-radius: 6px;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

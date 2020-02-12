@@ -1,0 +1,58 @@
+.logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.hero-title {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.cellar-dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dash-item {
+    border: 1px solid black;
+    border-radius: 35px;
+    margin-top: 30px;
+    width: 200px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cellar {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.beers-container {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.beer {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.add-button {
+    margin-top:30px;
+}
