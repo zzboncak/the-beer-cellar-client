@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "alias": "zzboncak-beer-cellar-app",
     "name": "the-beer-cellar-app",
     "routes": [
         { "handle": "filesystem" },
