@@ -24,19 +24,13 @@
     margin-top: 100px;
 }
 
-/* button {
-    width: 100px;
-    height: 30px;
-    border-radius: 6px;
-}
-
-button:hover {
-    cursor: pointer;
-} */
-
 .button-container {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.red {
+    color: red;
 }

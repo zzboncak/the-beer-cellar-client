@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './main-page.css';
 import Beer from '../beer/beer';
+import TokenService from '../../services/token-service';
 
 class MainPage extends React.Component {
     
@@ -24,13 +25,18 @@ class MainPage extends React.Component {
             }
         ];
 
-        return beers.map(beer => 
+        return beers.map((beer, i) => 
             <Beer 
+                key={i}    
                 name={beer.name}
                 rating={beer.rating}
                 quantity={beer.quantity}
             />);
     }
+
+    handleLogout = (e) => {
+        TokenService.clearAuthToken();
+    } 
     
     render() {
         let beers = this.makeBeers();
@@ -38,7 +44,12 @@ class MainPage extends React.Component {
         return (
             <div className='user-login-page'>
                 <Link to='/'>
-                    <button className="logout-button">Logout</button>
+                    <button 
+                        className="logout-button"
+                        onClick={this.handleLogout}
+                    >
+                        Logout
+                    </button>
                 </Link>
         
                 <h1 className="hero-title">My Cellar</h1>
@@ -84,23 +95,6 @@ class MainPage extends React.Component {
 
                     <section className="beers-container">
                         {beers}
-                        {/* <div className="beer">
-                            <p>Beer 1</p>
-                            <p>4.25</p>
-                            <p>x10</p>
-                        </div>
-
-                        <div className="beer">
-                            <p>Beer 2</p>
-                            <p>4.17</p>
-                            <p>x7</p>
-                        </div>
-
-                        <div className="beer">
-                            <p>Beer 3</p>
-                            <p>4.49</p>
-                            <p>x4</p>
-                        </div> */}
                     </section>
 
                     <Link to='/add-form'>
