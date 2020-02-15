@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-.register-form {
+.register-form, .form-instructions, .error-message {
     width: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -26,4 +26,17 @@
 .validate-message {
     color: red;
     text-align: center;
+}
+
+.form-instructions {
+    color: gray;
+    font-style: italic;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

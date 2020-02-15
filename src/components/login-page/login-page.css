@@ -31,6 +31,15 @@
     justify-content: space-evenly;
 }
 
-.red {
+.validate-message {
     color: red;
+    text-align: center;
+}
+
+.alert {
+    color: red;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }

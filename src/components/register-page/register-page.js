@@ -73,10 +73,13 @@ class RegisterPage extends React.Component {
     
     render() {
         let validateMessage = this.validateForm();
+        let error = this.state.error;
         
         return (
             <div className='register-page'>
                 <h2 className="page-title">Register</h2>
+
+                <div className='error-message'>{this.state.error && error}</div>
 
                 <form className="register-form" onSubmit={this.handleSubmit}>
                     <fieldset className="user-info">
@@ -122,6 +125,7 @@ class RegisterPage extends React.Component {
                         </div>
                     </fieldset>
                 </form>
+                <p className='form-instructions'>Passwords should be between 8 and 72 characters and contain at least one uppercase letter, one lowercase letter, and one number</p>
             <p className='validate-message'>{this.state.password_touched && validateMessage}</p>
             </div>
         )
