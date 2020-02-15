@@ -84,26 +84,6 @@ class AddPage extends React.Component {
 
                     {searchResults}
                     
-                    {/* <div className="beer">
-                        <p>Beer 1</p>
-                        <p>4.25</p>
-                        <p>x10</p>
-                        <button>Add to cellar</button>
-                    </div>
-
-                    <div className="beer">
-                        <p>Beer 2</p>
-                        <p>4.17</p>
-                        <p>x7</p>
-                        <button>Add to cellar</button>
-                    </div>
-
-                    <div className="beer">
-                        <p>Beer 3</p>
-                        <p>4.49</p>
-                        <p>x4</p>
-                        <button>Add to cellar</button>
-                    </div> */}
                 </section>
             </div>
         )
