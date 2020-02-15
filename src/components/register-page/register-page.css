@@ -22,3 +22,8 @@
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+.validate-message {
+    color: red;
+    text-align: center;
+}
