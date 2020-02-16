@@ -10,33 +10,6 @@ class MainPage extends React.Component {
     state = {
         beers: []
     }
-    // makeBeers() {
-    //     let beers = [
-    //         {
-    //             name: 'Beer 1',
-    //             rating: 4.25,
-    //             quantity: 10
-    //         },
-    //         {
-    //             name: 'Beer 2',
-    //             rating: 4.17,
-    //             quantity: 7
-    //         },
-    //         {
-    //             name: 'Beer 3',
-    //             rating: 4.49,
-    //             quantity: 4
-    //         }
-    //     ];
-
-    //     return beers.map((beer, i) => 
-    //         <Beer 
-    //             key={i}    
-    //             name={beer.name}
-    //             rating={beer.rating}
-    //             quantity={beer.quantity}
-    //         />);
-    // }
 
     componentDidMount = () => {
         fetch(`${config.LOCAL_API_ENDPOINT}/cellar`, {
@@ -61,16 +34,52 @@ class MainPage extends React.Component {
     handleLogout = (e) => {
         TokenService.clearAuthToken();
     } 
+
+    getTotalBeers = () => {
+        let countArray = this.state.beers.map(beer => beer.quantity);
+        let totalCount = countArray.reduce((a, b) => a + b, 0);
+        return totalCount
+    }
+
+    getAverageCellarRating = () => {
+        let arrayOfAverages = this.state.beers.map(beer => beer.untappd_rating*beer.quantity)
+        let totalScore = arrayOfAverages.reduce((a, b) => a + b, 0);
+        let totalCount = this.getTotalBeers();
+        return (totalScore/totalCount).toFixed(2);
+    }
+
+    getHighestRatedBeer = () => {
+        let arrayCopy = this.state.beers.slice();
+        let sortedArray = arrayCopy.sort((a, b) => a.untappd_rating - b.untappd_rating)
+        let highestBeer = sortedArray.pop();
+        return highestBeer;
+    }
+
+
+    getHighestCountBeer = () => {
+        let arrayCopy = this.state.beers.slice();
+        let sortedArray = arrayCopy.sort((a, b) => a.quantity - b.quantity);
+        let mostCountedBeer = sortedArray.pop();
+        return mostCountedBeer;
+    }
     
     render() {
         let beers = this.state.beers.map((beer, i) => {
             return <Beer 
-                    key={i} 
-                    name={beer.beer_name} 
-                    rating={beer.untappd_rating}
-                    quantity={beer.quantity}
+                        key={i} 
+                        name={beer.beer_name} 
+                        rating={beer.untappd_rating.toFixed(2)}
+                        quantity={beer.quantity}
                     />
         })
+
+        let cellarCount = this.getTotalBeers();
+
+        let cellarRating = this.getAverageCellarRating();
+
+        let highestBeer = this.getHighestRatedBeer() || ' ';
+
+        let mostBeer = this.getHighestCountBeer() || ' ';
         
         return (
             <div className='user-login-page'>
@@ -88,22 +97,22 @@ class MainPage extends React.Component {
                 <section className="cellar-dashboard">
                     <div className="dash-item">
                         <h3>Total Beers</h3>
-                        <p>27</p>
+                        <p>{cellarCount}</p>
                     </div>
 
                     <div className="dash-item">
                         <h3>Average Untappd Rating</h3>
-                        <p>4.37</p>
+                        <p>{cellarRating}</p>
                     </div>
 
                     <div className="dash-item">
                         <h3>Highest Ranked Beer</h3>
-                        <p>Bourbon County 2015</p>
+                        <p>{highestBeer.beer_name}</p>
                     </div>
 
                     <div className="dash-item">
                         <h3>Highest Count</h3>
-                        <p>Bourbon County 2019</p>
+                        <p>{mostBeer.beer_name}</p>
                     </div>
                 </section>
 
