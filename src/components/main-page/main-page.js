@@ -3,35 +3,59 @@ import { Link } from 'react-router-dom';
 import './main-page.css';
 import Beer from '../beer/beer';
 import TokenService from '../../services/token-service';
+import config from '../../config';
 
 class MainPage extends React.Component {
     
-    makeBeers() {
-        let beers = [
-            {
-                name: 'Beer 1',
-                rating: 4.25,
-                quantity: 10
-            },
-            {
-                name: 'Beer 2',
-                rating: 4.17,
-                quantity: 7
-            },
-            {
-                name: 'Beer 3',
-                rating: 4.49,
-                quantity: 4
-            }
-        ];
+    state = {
+        beers: []
+    }
+    // makeBeers() {
+    //     let beers = [
+    //         {
+    //             name: 'Beer 1',
+    //             rating: 4.25,
+    //             quantity: 10
+    //         },
+    //         {
+    //             name: 'Beer 2',
+    //             rating: 4.17,
+    //             quantity: 7
+    //         },
+    //         {
+    //             name: 'Beer 3',
+    //             rating: 4.49,
+    //             quantity: 4
+    //         }
+    //     ];
 
-        return beers.map((beer, i) => 
-            <Beer 
-                key={i}    
-                name={beer.name}
-                rating={beer.rating}
-                quantity={beer.quantity}
-            />);
+    //     return beers.map((beer, i) => 
+    //         <Beer 
+    //             key={i}    
+    //             name={beer.name}
+    //             rating={beer.rating}
+    //             quantity={beer.quantity}
+    //         />);
+    // }
+
+    componentDidMount = () => {
+        fetch(`${config.LOCAL_API_ENDPOINT}/cellar`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${TokenService.getAuthToken()}`,
+            }
+        })
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error('Could not load your beers! Sorry man...')
+                }
+                return res.json()
+            })
+            .then(data => {
+                console.log(data);
+                this.setState({ beers: data });
+            })
+            .catch(err => console.log(err))
     }
 
     handleLogout = (e) => {
@@ -39,7 +63,14 @@ class MainPage extends React.Component {
     } 
     
     render() {
-        let beers = this.makeBeers();
+        let beers = this.state.beers.map((beer, i) => {
+            return <Beer 
+                    key={i} 
+                    name={beer.beer_name} 
+                    rating={beer.untappd_rating}
+                    quantity={beer.quantity}
+                    />
+        })
         
         return (
             <div className='user-login-page'>
