@@ -12,7 +12,7 @@ class MainPage extends React.Component {
     }
 
     componentDidMount = () => {
-        fetch(`${config.LOCAL_API_ENDPOINT}/cellar`, {
+        fetch(`${config.API_ENDPOINT}/cellar`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${TokenService.getAuthToken()}`,
