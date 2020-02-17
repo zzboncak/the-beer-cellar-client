@@ -61,14 +61,14 @@ class LoginPage extends React.Component {
     }
 
     render() {
-        const error = this.state.error;
+        const errorMessage = this.state.error;
         const validateMessage = this.validateForm();
 
         return(
             <div className='login-page'>
                 <h2 className="page-title">Log in</h2>
 
-                {error && <p className='alert'>{error}</p>}
+                {errorMessage && <p className='alert'>{errorMessage}</p>}
             
                 <form className="login-form" onSubmit={this.handleSubmit}>
                     

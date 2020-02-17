@@ -26,7 +26,6 @@ class AddPage extends React.Component {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log(data.response.beers.items)
                 this.setState({
                     userSearch: '',
                     beersFromSearch: data.response.beers.items

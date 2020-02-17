@@ -8,7 +8,6 @@ class Beer extends React.Component {
     }
 
     handleBeerClick = (e) => {
-        console.log(`You clicked beer with inventory ${this.props.inventory}`);
         this.setState({
             isExpanded: !this.state.isExpanded
         })

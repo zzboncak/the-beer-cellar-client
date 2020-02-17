@@ -25,7 +25,6 @@ class MainPage extends React.Component {
                 return res.json()
             })
             .then(data => {
-                console.log(data);
                 this.setState({ beers: data });
             })
             .catch(err => console.log(err))
@@ -82,8 +81,6 @@ class MainPage extends React.Component {
         let highestBeer = this.getHighestRatedBeer() || ' ';
 
         let mostBeer = this.getHighestCountBeer() || ' ';
-
-        console.log(this.state)
         
         return (
             <div className='user-login-page'>
