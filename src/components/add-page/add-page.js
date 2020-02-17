@@ -45,6 +45,7 @@ class AddPage extends React.Component {
                     beer_name={item.beer.beer_name}
                     beer_description={item.beer.beer_description}
                     beer_label={item.beer.beer_label}
+                    history={this.props.history}
                 />)
         }
     }
