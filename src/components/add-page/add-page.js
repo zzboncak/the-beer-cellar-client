@@ -66,7 +66,7 @@ class AddPage extends React.Component {
                         <input 
                             name="username" 
                             type="search" 
-                            placeholder="ex: Pliney the Elder"
+                            placeholder="ex: Pliny the Elder"
                             value={this.state.userSearch}
                             onChange={this.onSearchChange} 
                         />

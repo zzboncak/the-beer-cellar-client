@@ -67,9 +67,11 @@ class MainPage extends React.Component {
         let beers = this.state.beers.map((beer, i) => {
             return <Beer 
                         key={i} 
+                        inventory={beer.inventory_id}
                         name={beer.beer_name} 
                         rating={beer.untappd_rating.toFixed(2)}
                         quantity={beer.quantity}
+                        description={beer.beer_description}
                     />
         })
 
@@ -80,6 +82,8 @@ class MainPage extends React.Component {
         let highestBeer = this.getHighestRatedBeer() || ' ';
 
         let mostBeer = this.getHighestCountBeer() || ' ';
+
+        console.log(this.state)
         
         return (
             <div className='user-login-page'>

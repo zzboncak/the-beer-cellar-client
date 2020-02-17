@@ -4,6 +4,12 @@
     border-radius: 10px;
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
+}
+
+.beer-overview {
+    display: flex;
     flex-direction: row;
+    width: 100%;
     justify-content: space-around;
 }
