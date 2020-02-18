@@ -35,9 +35,6 @@ class MainPage extends React.Component {
     } 
 
     updateState = (index, updateField, updateValue) => {
-        console.log('index', index);
-        console.log('updateField', updateField);
-        console.log('updateValue', updateValue);
         let beer = this.state.beers[index];
         beer[updateField] = updateValue;
         let currentState = this.state.beers.slice();
