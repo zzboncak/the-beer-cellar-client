@@ -34,6 +34,17 @@ class MainPage extends React.Component {
         TokenService.clearAuthToken();
     } 
 
+    updateState = (index, updateField, updateValue) => {
+        console.log('index', index);
+        console.log('updateField', updateField);
+        console.log('updateValue', updateValue);
+        let beer = this.state.beers[index];
+        beer[updateField] = updateValue;
+        let currentState = this.state.beers.slice();
+        currentState[index] = beer;
+        this.setState({ beers: currentState });
+    }
+
     getTotalBeers = () => {
         let countArray = this.state.beers.map(beer => beer.quantity);
         let totalCount = countArray.reduce((a, b) => a + b, 0);
@@ -65,7 +76,8 @@ class MainPage extends React.Component {
     render() {
         let beers = this.state.beers.map((beer, i) => {
             return <Beer 
-                        key={i} 
+                        key={i}
+                        index={i} 
                         inventory={beer.inventory_id}
                         name={beer.beer_name} 
                         rating={beer.untappd_rating.toFixed(2)}
@@ -73,6 +85,7 @@ class MainPage extends React.Component {
                         description={beer.beer_description}
                         brewery={beer.brewery_name}
                         image={beer.beer_image}
+                        updateState={this.updateState}
                     />
         })
 

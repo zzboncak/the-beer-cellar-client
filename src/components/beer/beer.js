@@ -35,6 +35,7 @@ class Beer extends React.Component {
                 if(!res.ok) {
                     throw new Error('Could not update quantity. Sorry bro...')
                 }
+                this.props.updateState(this.props.index, 'quantity', newQuantity)
             })
             .catch(err => console.log(err))
     }
