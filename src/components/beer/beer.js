@@ -1,5 +1,7 @@
 import React from 'react';
 import './beer.css';
+import config from '../../config';
+import TokenService from '../../services/token-service';
 
 class Beer extends React.Component {
     
@@ -14,14 +16,40 @@ class Beer extends React.Component {
         })
     }
 
+    updateQuantity(newQuantity) {
+        this.setState({ quantity: newQuantity });
+        let updateFields = {
+            inventory_id: this.props.inventory,
+            updatedQuantity: newQuantity
+        };
+
+        fetch(`${config.getEndpoint()}/cellar/inventory`, {
+            method: 'PATCH',
+            headers: {
+                "content-type": "application/json",
+                "Authorization": `Bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(updateFields)
+        })
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error('Could not update quantity. Sorry bro...')
+                }
+                console.log(`Quantity updated to ${newQuantity}!`);
+            })
+            .catch(err => console.log(err))
+    }
+
     handleMinusClick = (e) => {
         e.stopPropagation();
-        this.setState({ quantity: this.state.quantity - 1 });
+        const newQuantity = this.state.quantity - 1;
+        this.updateQuantity(newQuantity);
     }
 
     handlePlusClick = (e) => {
         e.stopPropagation();
-        this.setState({ quantity: this.state.quantity + 1 });
+        const newQuantity = this.state.quantity + 1;
+        this.updateQuantity(newQuantity);
     }
 
     render() {
