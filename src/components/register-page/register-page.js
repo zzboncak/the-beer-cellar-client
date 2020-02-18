@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './register-page.css';
 import AuthApiService from '../../services/auth-api-service';
+import TokenService from '../../services/token-service';
 
 class RegisterPage extends React.Component {
     state = {
@@ -38,13 +39,14 @@ class RegisterPage extends React.Component {
         const newUser = { username, user_password };
 
         AuthApiService.postUser(newUser)
-            .then(user => {
+            .then(res => {
                 this.setState({
                     username: '',
                     user_password: '',
                     error: null
                 });
-                this.props.history.push('/login')
+                TokenService.saveAuthToken(res);
+                this.props.history.push('/cellar')
             })
             .catch(res => {
                 this.setState({ error: res.error })
