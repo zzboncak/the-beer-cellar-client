@@ -12,7 +12,7 @@ class MainPage extends React.Component {
     }
 
     componentDidMount = () => {
-        fetch(`${config.API_ENDPOINT}/cellar`, {
+        fetch(`${config.getEndpoint()}/cellar`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${TokenService.getAuthToken()}`,
@@ -71,6 +71,8 @@ class MainPage extends React.Component {
                         rating={beer.untappd_rating.toFixed(2)}
                         quantity={beer.quantity}
                         description={beer.beer_description}
+                        brewery={beer.brewery_name}
+                        image={beer.beer_image}
                     />
         })
 

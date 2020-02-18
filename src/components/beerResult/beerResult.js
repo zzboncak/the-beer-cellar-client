@@ -8,7 +8,7 @@ class BeerResult extends React.Component {
     handleAdd = (e) => {
         e.preventDefault();
         console.log(`You tried to add a beer with id ${this.props.bid}`);
-        let url = `${config.API_ENDPOINT}/cellar/add/${this.props.bid}`;
+        let url = `${config.getEndpoint()}/cellar/add/${this.props.bid}`;
         let options = {
             method: 'post',
             headers: {
