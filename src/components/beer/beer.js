@@ -35,7 +35,6 @@ class Beer extends React.Component {
                 if(!res.ok) {
                     throw new Error('Could not update quantity. Sorry bro...')
                 }
-                console.log(`Quantity updated to ${newQuantity}!`);
             })
             .catch(err => console.log(err))
     }
@@ -52,23 +51,50 @@ class Beer extends React.Component {
         this.updateQuantity(newQuantity);
     }
 
+    handleDelete = () => {
+        fetch(`${config.getEndpoint()}/cellar/inventory`, {
+            method: 'DELETE',
+            headers: {
+                "content-type": "application/json",
+                "Authorization": `Bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify({ inventory_id: this.props.inventory })
+        })
+            .then(res => {
+                if(!res.ok) {
+                    throw new Error('Could not delete beer. Sorry bro...')
+                }
+            })
+            .catch(err => console.log(err))
+    }
+
     render() {
         return (
-            <div className="beer" onClick={this.handleBeerClick}>
-                <div className="beer-image-name">
-                    <img src={this.props.image} alt='beer label' className="beer-label"/>
-                    <h3>{this.props.name}</h3>
-                </div>
-                <p>{this.props.brewery}</p>
-                <div className="rating-quantity-container">
-                    <p>Untappd Rating: {this.props.rating}</p>
-                    <div className="quantity-container">
-                        <button className="minus-button" onClick={this.handleMinusClick}>-</button>
-                        <p>{this.state.quantity}x</p>
-                        <button className="plus-button" onClick={this.handlePlusClick}>+</button>
+            <div className="total-container">
+                <span 
+                    className="delete-icon" 
+                    role='img' 
+                    aria-label='delete'
+                    onClick={this.handleDelete}
+                >
+                    ☠️
+                </span>
+                <div className="beer" onClick={this.handleBeerClick}>
+                    <div className="beer-image-name">
+                        <img src={this.props.image} alt='beer label' className="beer-label"/>
+                        <h3>{this.props.name}</h3>
                     </div>
+                    <p>{this.props.brewery}</p>
+                    <div className="rating-quantity-container">
+                        <p>Untappd Rating: {this.props.rating}</p>
+                        <div className="quantity-container">
+                            <button className="minus-button" onClick={this.handleMinusClick}>-</button>
+                            <p>{this.state.quantity}x</p>
+                            <button className="plus-button" onClick={this.handlePlusClick}>+</button>
+                        </div>
+                    </div>
+                    {this.state.isExpanded && <p>{this.props.description}</p>}
                 </div>
-                {this.state.isExpanded && <p>{this.props.description}</p>}
             </div>
         )
     }
