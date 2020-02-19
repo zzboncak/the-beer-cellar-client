@@ -7,7 +7,6 @@ class Beer extends React.Component {
     
     state = {
         isExpanded: false,
-        quantity: this.props.quantity
     }
 
     handleBeerClick = (e) => {
@@ -42,13 +41,13 @@ class Beer extends React.Component {
 
     handleMinusClick = (e) => {
         e.stopPropagation();
-        const newQuantity = this.state.quantity - 1;
+        const newQuantity = this.props.quantity - 1;
         this.updateQuantity(newQuantity);
     }
 
     handlePlusClick = (e) => {
         e.stopPropagation();
-        const newQuantity = this.state.quantity + 1;
+        const newQuantity = this.props.quantity + 1;
         this.updateQuantity(newQuantity);
     }
 
@@ -90,7 +89,7 @@ class Beer extends React.Component {
                         <p>Untappd Rating: {this.props.rating}</p>
                         <div className="quantity-container">
                             <button className="minus-button" onClick={this.handleMinusClick}>-</button>
-                            <p>{this.state.quantity}x</p>
+                            <p>{this.props.quantity}x</p>
                             <button className="plus-button" onClick={this.handlePlusClick}>+</button>
                         </div>
                     </div>

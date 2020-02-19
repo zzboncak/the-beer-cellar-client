@@ -69,6 +69,52 @@ class MainPage extends React.Component {
         let mostCountedBeer = sortedArray.pop();
         return mostCountedBeer;
     }
+
+    handleSort = (e) => {
+        const sortOption = e.target.value;
+        let keyName = '';
+        //first set the keyName of the objects to sort on based on the sort option
+        if (sortOption === "quantity-low" || sortOption === "quantity-high") {
+            keyName = "quantity";
+        } else if (sortOption === "a-z" || sortOption === "z-a") {
+            keyName = "beer_name";
+        } else if (sortOption === "rating-high" || sortOption === "rating-low") {
+            keyName = "untappd_rating";
+        }
+
+        //then sort accordingly
+        if (sortOption === "quantity-low" || sortOption === "rating-low") {
+            this.setState({ beers: this.state.beers.sort((a, b) => a[keyName] - b[keyName]) });
+        } else if (sortOption === "quantity-high" || sortOption === "rating-high") {
+            this.setState({ beers: this.state.beers.sort((a, b) => b[keyName] - a[keyName]) });
+        } else if (sortOption === "a-z") {
+            this.setState({ beers: this.state.beers.sort((a, b) => {
+                let aName = a[keyName];
+                let bName = b[keyName];
+                if(aName < bName){
+                    return -1;
+                } else if (aName > bName) {
+                    return 1;
+                } else {
+                    return 0
+                }
+            } 
+            )})
+        } else if (sortOption === "z-a") {
+            this.setState({ beers: this.state.beers.sort((a, b) => {
+                let aName = a[keyName];
+                let bName = b[keyName];
+                if(aName > bName){
+                    return -1;
+                } else if (aName < bName) {
+                    return 1;
+                } else {
+                    return 0
+                }
+            } 
+            )})
+        }
+    }
     
     render() {
         let beers = this.state.beers.map((beer, i) => {
@@ -135,14 +181,13 @@ class MainPage extends React.Component {
                     
                     <div className="sort-bar">
                         <label htmlFor="sort-options">Sort by</label>
-                        <select name="sort-options">
-                            <option>Quantity</option>
-                            <option>A-Z</option>
-                            <option>Z-A</option>
-                            <option>Rating (High - Low)</option>
-                            <option>Rating (Low - High)</option>
-                            <option>Date ascending</option>
-                            <option>Date descending</option>
+                        <select name="sort-options" onChange={e => this.handleSort(e)}>
+                            <option value="a-z">A-Z</option>
+                            <option value="z-a">Z-A</option>
+                            <option value="quantity-high">Quantity (High - Low)</option>
+                            <option value="quantity-low">Quantity (Low - High)</option>
+                            <option value="rating-high">Rating (High - Low)</option>
+                            <option value="rating-low">Rating (Low - High)</option>
                         </select>
                     </div>
 
