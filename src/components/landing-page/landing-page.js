@@ -4,7 +4,6 @@ import './landing-page.css';
 
 class LandingPage extends React.Component {
     render() {
-        console.log(process.env)
         return(
             <div>
                 <nav className="nav">
