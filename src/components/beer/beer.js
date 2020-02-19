@@ -52,20 +52,25 @@ class Beer extends React.Component {
     }
 
     handleDelete = () => {
-        fetch(`${config.API_ENDPOINT}/cellar/inventory`, {
-            method: 'DELETE',
-            headers: {
-                "content-type": "application/json",
-                "Authorization": `Bearer ${TokenService.getAuthToken()}`
-            },
-            body: JSON.stringify({ inventory_id: this.props.inventory })
-        })
-            .then(res => {
-                if(!res.ok) {
-                    throw new Error('Could not delete beer. Sorry bro...')
-                }
+        if(window.confirm('Are you sure you want to delete this beer?')) {
+            fetch(`${config.API_ENDPOINT}/cellar/inventory`, {
+                method: 'DELETE',
+                headers: {
+                    "content-type": "application/json",
+                    "Authorization": `Bearer ${TokenService.getAuthToken()}`
+                },
+                body: JSON.stringify({ inventory_id: this.props.inventory })
             })
-            .catch(err => console.log(err))
+                .then(res => {
+                    if(!res.ok) {
+                        throw new Error('Could not delete beer. Sorry bro...')
+                    }
+                    this.props.handleBeerDelete(this.props.inventory);
+                })
+                .catch(err => console.log(err))
+        } else {
+            console.log(`Good call, that's a good beer`);
+        }
     }
 
     render() {

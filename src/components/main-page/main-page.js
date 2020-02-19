@@ -34,12 +34,19 @@ class MainPage extends React.Component {
         TokenService.clearAuthToken();
     } 
 
-    updateState = (index, updateField, updateValue) => {
+    //a general function to update a single beer object in the array of beers in state.
+    //pass in the index of the item in the array, the field to update, and its update value.
+    updateBeerInState = (index, updateField, updateValue) => {
         let beer = this.state.beers[index];
         beer[updateField] = updateValue;
         let currentState = this.state.beers.slice();
         currentState[index] = beer;
         this.setState({ beers: currentState });
+    }
+
+    handleBeerDelete = (inventory_id) => {
+        let newState = this.state.beers.filter(beer => beer.inventory_id !== inventory_id);
+        this.setState({ beers: newState })
     }
 
     getTotalBeers = () => {
@@ -73,13 +80,14 @@ class MainPage extends React.Component {
     handleSort = (e) => {
         const sortOption = e.target.value;
         let keyName = '';
+
         //first set the keyName of the objects to sort on based on the sort option
         if (sortOption === "quantity-low" || sortOption === "quantity-high") {
-            keyName = "quantity";
+            keyName = "quantity"; //sorting on quantity
         } else if (sortOption === "a-z" || sortOption === "z-a") {
-            keyName = "beer_name";
+            keyName = "beer_name"; //sorting on beer_name
         } else if (sortOption === "rating-high" || sortOption === "rating-low") {
-            keyName = "untappd_rating";
+            keyName = "untappd_rating"; //sorting on untappd_rating
         }
 
         //then sort accordingly
@@ -87,7 +95,7 @@ class MainPage extends React.Component {
             this.setState({ beers: this.state.beers.sort((a, b) => a[keyName] - b[keyName]) });
         } else if (sortOption === "quantity-high" || sortOption === "rating-high") {
             this.setState({ beers: this.state.beers.sort((a, b) => b[keyName] - a[keyName]) });
-        } else if (sortOption === "a-z") {
+        } else if (sortOption === "a-z") { //sorting alpabetically
             this.setState({ beers: this.state.beers.sort((a, b) => {
                 let aName = a[keyName];
                 let bName = b[keyName];
@@ -100,7 +108,7 @@ class MainPage extends React.Component {
                 }
             } 
             )})
-        } else if (sortOption === "z-a") {
+        } else if (sortOption === "z-a") { //sorting reverse alphabetically
             this.setState({ beers: this.state.beers.sort((a, b) => {
                 let aName = a[keyName];
                 let bName = b[keyName];
@@ -120,7 +128,7 @@ class MainPage extends React.Component {
         let beers = this.state.beers.map((beer, i) => {
             return <Beer 
                         key={i}
-                        index={i} 
+                        index={i} //so the component knows which index it is in the main-page state
                         inventory={beer.inventory_id}
                         name={beer.beer_name} 
                         rating={beer.untappd_rating.toFixed(2)}
@@ -128,7 +136,8 @@ class MainPage extends React.Component {
                         description={beer.beer_description}
                         brewery={beer.brewery_name}
                         image={beer.beer_image}
-                        updateState={this.updateState}
+                        updateState={this.updateBeerInState}
+                        handleBeerDelete={this.handleBeerDelete}
                     />
         })
 
