@@ -22,7 +22,7 @@ class AddPage extends React.Component {
     handleAddFormSubmit = (e) => {
         e.preventDefault();
         let searchTerm = this.state.userSearch.replace(/ /g, '+');
-        let url = `${config.getEndpoint()}/search/${searchTerm}`;
+        let url = `${config.API_ENDPOINT}/search/${searchTerm}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {

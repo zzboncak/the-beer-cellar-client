@@ -23,7 +23,7 @@ class Beer extends React.Component {
             updatedQuantity: newQuantity
         };
 
-        fetch(`${config.getEndpoint()}/cellar/inventory`, {
+        fetch(`${config.API_ENDPOINT}/cellar/inventory`, {
             method: 'PATCH',
             headers: {
                 "content-type": "application/json",
@@ -53,7 +53,7 @@ class Beer extends React.Component {
     }
 
     handleDelete = () => {
-        fetch(`${config.getEndpoint()}/cellar/inventory`, {
+        fetch(`${config.API_ENDPOINT}/cellar/inventory`, {
             method: 'DELETE',
             headers: {
                 "content-type": "application/json",
