@@ -75,31 +75,34 @@ class Beer extends React.Component {
 
     render() {
         return (
-            <div className="total-container">
-                <span 
-                    className="delete-icon" 
-                    role='img' 
-                    aria-label='delete'
-                    onClick={this.handleDelete}
-                >
-                    ☠️
-                </span>
-                <div className="beer" onClick={this.handleBeerClick}>
-                    <div className="beer-image-name">
-                        <img src={this.props.image} alt='beer label' className="beer-label"/>
-                        <h3>{this.props.name}</h3>
-                    </div>
-                    <p>{this.props.brewery}</p>
-                    <div className="rating-quantity-container">
-                        <p>Untappd Rating: {this.props.rating}</p>
-                        <div className="quantity-container">
-                            <button className="minus-button" onClick={this.handleMinusClick}>-</button>
-                            <p>{this.props.quantity}x</p>
-                            <button className="plus-button" onClick={this.handlePlusClick}>+</button>
-                        </div>
-                    </div>
-                    {this.state.isExpanded && <p>{this.props.description}</p>}
+            <div className="beer" onClick={this.handleBeerClick}>
+                <div className="beer-image-name">
+                    <img src={this.props.image} alt='beer label' className="beer-label"/>
+                    <h3><strong>{this.props.name}</strong></h3>
                 </div>
+                <p>{this.props.brewery}</p>
+                <div className="rating-quantity-container">
+                    <p>Untappd Rating: {this.props.rating}</p>
+                    <div className="quantity-container">
+                        <button className="minus-button" onClick={this.handleMinusClick}>-</button>
+                        <p>{this.props.quantity}x</p>
+                        <button className="plus-button" onClick={this.handlePlusClick}>+</button>
+                    </div>
+                </div>
+                {this.state.isExpanded && 
+                <div className="expand-container">
+                    <p className="beer-description">{this.props.description}</p>
+                    <p className="delete-label">Remove from my cellar: <span 
+                        className="delete-icon" 
+                        role='img' 
+                        aria-label='delete'
+                        onClick={this.handleDelete}
+                    >
+                        ❌
+                    </span></p>
+                    
+                </div>
+                }
             </div>
         )
     }

@@ -186,11 +186,9 @@ class MainPage extends React.Component {
 
                 <section className="cellar">
                     
-                    <h2>Beers</h2>
-                    
                     <div className="sort-bar">
-                        <label htmlFor="sort-options">Sort by</label>
-                        <select name="sort-options" onChange={e => this.handleSort(e)}>
+                        <label htmlFor="sort-options">Sort by: </label>
+                        <select id="sort-options" name="sort-options" onChange={e => this.handleSort(e)}>
                             <option value="a-z">A-Z</option>
                             <option value="z-a">Z-A</option>
                             <option value="quantity-high">Quantity (High - Low)</option>
@@ -205,7 +203,7 @@ class MainPage extends React.Component {
                     </section>
 
                     <Link to='/add-form'>
-                        <button className="add-button">Add a beer</button>
+                        <button id="add-button">+</button>
                     </Link>
                 </section>
             </div>

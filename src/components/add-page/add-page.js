@@ -80,10 +80,7 @@ class AddPage extends React.Component {
                 </form>
 
                 <section className="results-section">
-                    <h3>Results</h3>
-
-                    {searchResults}
-                    
+                    {searchResults}             
                 </section>
             </div>
         )

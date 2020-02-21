@@ -42,7 +42,7 @@ class LandingPage extends React.Component {
                 </nav>
 
                 <main>
-                    <h1 className="hero-header">Beer Cellar</h1>
+                    <h1 className="hero-header">The Beer Cellar</h1>
                     <p className="app-description">A place to keep track of your carefully curated craft beers</p>
                 </main>
         

@@ -23,10 +23,12 @@ class BeerResult extends React.Component {
     render() {
         return (
             <div className="beer-result">
-                <h3 className="beer-name">{this.props.beer_name}</h3>
+                <div className="beer-image-name">
+                    <img src={this.props.beer_label} alt='A beer label' />
+                    <h3 className="beer-name">{this.props.beer_name}</h3>
+                </div>
                 <p className="beer-description">{this.props.beer_description}</p>
-                <img src={this.props.beer_label} alt='A beer label' />
-                <button className="add-button" onClick={this.handleAdd}>Add to my cellar</button>
+                <button id="add-cellar" onClick={this.handleAdd}>Add to my cellar</button>
             </div>
         )
     }

@@ -4,6 +4,15 @@
 
 .App {
   padding: 10px 10px 10px 10px;
+  height: 100%;
+}
+
+h1 {
+  font-family: 'Rock Salt';
+}
+
+h2, h3, p, label, button {
+  font-family: 'Open Sans';
 }
 
 button {
@@ -25,4 +34,8 @@ input {
 
 input::placeholder{
   font-size: 18px;
+}
+
+fieldset {
+  background-color: ghostwhite;
 }

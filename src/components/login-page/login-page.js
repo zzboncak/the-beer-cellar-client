@@ -72,7 +72,9 @@ class LoginPage extends React.Component {
             
                 <form className="login-form" onSubmit={this.handleSubmit}>
                     
+                    
                     <fieldset className="user-info">
+                    <p className='validate-message'>{this.state.form_touched && validateMessage}</p>
                         <label htmlFor="username">
                             Username:
                         </label>
@@ -80,7 +82,7 @@ class LoginPage extends React.Component {
                         <input 
                             name="username" 
                             type="text" 
-                            placeholder="ex: Gandalf the Grey" 
+                            placeholder="ex: GandalfTheGrey" 
                             value={this.state.username}
                             onChange={this.onUsernameChange}
                         />
@@ -97,19 +99,24 @@ class LoginPage extends React.Component {
                         />
 
                         <div className="button-container">
-                            <button type="submit" disabled={validateMessage}>Let's Go</button>
+                            <button 
+                                type="submit" 
+                                id="submit-button"
+                                disabled={validateMessage}
+                            >
+                                Let's Go
+                            </button>
                             <Link to='/'>
-                                <button>Cancel</button>
+                                <button id="cancel-button">Cancel</button>
                             </Link>
                         </div>
                     </fieldset>
                 </form>
-                <p className='validate-message'>{this.state.form_touched && validateMessage}</p>
 
                 <section className="register">
                     <p>Don't have an account yet?</p>
                     <Link to='register'>
-                        <button>Register</button>
+                        <button id="register-button">Register</button>
                     </Link>
                 </section>
             </div>
