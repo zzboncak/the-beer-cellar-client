@@ -57,6 +57,7 @@
     border-radius: 60px;
     border: 1px solid black;
     font-size: 24px;
+    background-color: gainsboro;
 }
 
 #add-button:hover {
