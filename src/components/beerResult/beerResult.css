@@ -18,6 +18,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
     height: 40px;
+    background-color: gainsboro;
+    width: 120px;
 }
 
 .beer-description, .beer-name {
