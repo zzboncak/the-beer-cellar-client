@@ -12,6 +12,10 @@
     margin-right: auto;
 }
 
+.add-page-button {
+    background-color: gainsboro;
+}
+
 .beer-info {
     border-radius: 6px;
 }

@@ -71,9 +71,9 @@ class AddPage extends React.Component {
                         />
 
                         <div className="button-container">
-                            <button type="submit">Let's Go</button>
+                            <button className="add-page-button" type="submit">Let's Go</button>
                             <Link to='/cellar'>
-                                <button>Cancel</button>
+                                <button className="add-page-button">Cancel</button>
                             </Link>
                         </div>
                     </fieldset>
