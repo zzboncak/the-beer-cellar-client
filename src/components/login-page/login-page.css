@@ -7,7 +7,7 @@
 }
 
 .login-form {
-    width: 400px;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -46,4 +46,8 @@
 
 #cancel-button, #submit-button {
     background-color: gainsboro;
+}
+
+#register-button {
+    background-color: ghostwhite;
 }

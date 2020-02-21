@@ -17,3 +17,7 @@
 .app-description {
     font-family: 'Open Sans';
 }
+
+.auth-button, .demo-button {
+    background-color: ghostwhite;
+}

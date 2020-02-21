@@ -120,9 +120,9 @@ class RegisterPage extends React.Component {
                         />
 
                         <div className="button-container">
-                            <button type="submit" disabled={validateMessage}>Submit</button>
+                            <button className="register-form-button" type="submit" disabled={validateMessage}>Submit</button>
                             <Link to='/'>
-                                <button>Cancel</button>
+                                <button className="register-form-button">Cancel</button>
                             </Link>
                         </div>
                     </fieldset>

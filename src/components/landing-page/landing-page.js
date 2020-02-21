@@ -10,7 +10,7 @@ class LandingPage extends React.Component {
             return (
                 <div className="auth-buttons">
                     <Link to='/cellar'>
-                        <button>See my cellar</button>
+                        <button className="auth-button">See my cellar</button>
                     </Link>
                 </div>
             )
@@ -18,11 +18,11 @@ class LandingPage extends React.Component {
             return (
                 <div className="auth-buttons">
                     <Link to='/login'>
-                        <button>Login</button>
+                        <button className="auth-button">Login</button>
                     </Link>
                     {' '}
                     <Link to='/register'>
-                        <button>Register</button>
+                        <button className="auth-button">Register</button>
                     </Link>
                 </div>
             )

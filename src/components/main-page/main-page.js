@@ -153,7 +153,7 @@ class MainPage extends React.Component {
             <div className='user-login-page'>
                 <Link to='/'>
                     <button 
-                        className="logout-button"
+                        id="logout-button"
                         onClick={this.handleLogout}
                     >
                         Logout
