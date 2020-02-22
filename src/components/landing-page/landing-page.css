@@ -27,3 +27,15 @@
 .auth-button, .demo-button {
     background-color: ghostwhite;
 }
+
+@media screen and (min-width: 600px) {
+    .hero-header {
+        font-size: 50px;
+        width: 95%;
+    }
+
+    .app-description {
+        width: 400px;
+        font-size: 30px;
+    }
+}

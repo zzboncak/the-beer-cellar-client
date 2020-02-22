@@ -12,6 +12,10 @@
     margin-right: auto;
 }
 
+.form-input {
+    margin-bottom: 20px;
+}
+
 .user-info {
     border-radius: 6px;
 }
@@ -43,4 +47,14 @@
 
 .register-form-button {
     background-color: gainsboro;
+}
+
+@media screen and (min-width: 600px) {
+    .register-form {
+        width: 500px;
+    }
+
+    .form-instructions {
+        width: 400px;
+    }
 }

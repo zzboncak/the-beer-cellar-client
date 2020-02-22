@@ -49,7 +49,6 @@
 }
 
 #add-button {
-    margin-top: 30px;
     position: fixed;
     width: 60px;
     height: 60px;
@@ -72,4 +71,31 @@
 #sort-options {
     background-color: ghostwhite;
     text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+    .hero-title {
+        width: 300px;
+        font-size: 36px;
+    }
+    
+    .dash-item {
+        width: 300px;
+        font-size: 24px;
+    }
+
+    .sort-bar {
+        font-size: 24px;
+    }
+
+    .cellar, .beers-container {
+        width: 600px;
+    }
+
+    #add-button {
+        right: calc(50% - 400px);
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+    }
 }

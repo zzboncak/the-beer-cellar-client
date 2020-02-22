@@ -80,6 +80,7 @@ class LoginPage extends React.Component {
                         </label>
                         <br/>
                         <input 
+                            className="form-input"
                             name="username" 
                             type="text" 
                             placeholder="ex: GandalfTheGrey" 
@@ -92,6 +93,7 @@ class LoginPage extends React.Component {
                         </label>
                         <br/>
                         <input 
+                            className="form-input"
                             name="password" 
                             type="password" 
                             value={this.state.user_password}

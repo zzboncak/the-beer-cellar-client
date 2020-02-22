@@ -90,6 +90,7 @@ class RegisterPage extends React.Component {
                         </label>
                         <br/>
                         <input 
+                            className="form-input"
                             name="username" 
                             type="text" 
                             placeholder="ex: Gandalf the Grey"
@@ -102,6 +103,7 @@ class RegisterPage extends React.Component {
                         </label>
                         <br/>
                         <input 
+                            className="form-input"
                             name="password" 
                             type="password"
                             value={this.state.user_password}
@@ -113,6 +115,7 @@ class RegisterPage extends React.Component {
                         </label>
                         <br/>
                         <input 
+                            className="form-input"
                             name="password-confirm" 
                             type="password" 
                             value={this.state.password_confirm}

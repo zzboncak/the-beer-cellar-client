@@ -12,6 +12,10 @@
     margin-right: auto;
 }
 
+.form-input {
+    margin-bottom: 20px;
+}
+
 .user-info {
     border-radius: 6px;
 }
@@ -50,4 +54,10 @@
 
 #register-button {
     background-color: ghostwhite;
+}
+
+@media screen and (min-width: 600px) {
+    .login-form {
+        width: 500px;
+    }
 }
