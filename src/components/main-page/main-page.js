@@ -12,6 +12,8 @@ class MainPage extends React.Component {
     }
 
     componentDidMount = () => {
+        //if there is an auth token, fetch the data, if there isn't render dummy data from a store.
+        
         fetch(`${config.API_ENDPOINT}/cellar`, {
             method: 'GET',
             headers: {
