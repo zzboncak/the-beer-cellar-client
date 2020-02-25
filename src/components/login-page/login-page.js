@@ -68,7 +68,7 @@ class LoginPage extends React.Component {
             <div className='login-page'>
                 <h2 className="page-title">Log in</h2>
 
-                {errorMessage && <p className='alert'>{errorMessage}</p>}
+                {errorMessage && <p className='alert'>{errorMessage.errno}</p>}
             
                 <form className="login-form" onSubmit={this.handleSubmit}>
                     

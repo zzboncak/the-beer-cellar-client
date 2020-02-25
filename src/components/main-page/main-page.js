@@ -4,68 +4,57 @@ import './main-page.css';
 import Beer from '../beer/beer';
 import TokenService from '../../services/token-service';
 import config from '../../config';
+import BeerContext from '../../BeerContext';
 
 class MainPage extends React.Component {
-    
-    state = {
-        beers: []
-    }
+    static contextType = BeerContext;
 
-    componentDidMount = () => {
-        //if there is an auth token, fetch the data, if there isn't render dummy data from a store.
-        
-        fetch(`${config.API_ENDPOINT}/cellar`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${TokenService.getAuthToken()}`,
-            }
-        })
-            .then(res => {
-                if(!res.ok) {
-                    throw new Error('Could not load your beers! Sorry man...')
+    componentDidMount = () => {        
+        //If a user is logged in (i.e. has an auth token), the user's beers are fetched. If not, it's in demo mode and loads dummy data and runs in system memory.
+        if(TokenService.hasAuthToken()) {
+            fetch(`${config.API_ENDPOINT}/cellar`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${TokenService.getAuthToken()}`,
                 }
-                return res.json()
             })
-            .then(data => {
-                this.setState({ beers: data });
-            })
-            .catch(err => console.log(err))
+                .then(res => {
+                    if(!res.ok) {
+                        throw new Error('Could not load your beers! Sorry man...')
+                    }
+                    return res.json()
+                })
+                .then(data => {
+                    this.context.updateBeersInState(data);
+                })
+                .catch(err => console.log(err))
+        }
     }
 
     handleLogout = (e) => {
         TokenService.clearAuthToken();
     } 
 
-    //a general function to update a single beer object in the array of beers in state.
-    //pass in the index of the item in the array, the field to update, and its update value.
-    updateBeerInState = (index, updateField, updateValue) => {
-        let beer = this.state.beers[index];
-        beer[updateField] = updateValue;
-        let currentState = this.state.beers.slice();
-        currentState[index] = beer;
-        this.setState({ beers: currentState });
-    }
-
     handleBeerDelete = (inventory_id) => {
-        let newState = this.state.beers.filter(beer => beer.inventory_id !== inventory_id);
-        this.setState({ beers: newState })
+        let newState = this.context.beers.filter(beer => beer.inventory_id !== inventory_id);
+        this.context.updateBeersInState(newState)
     }
 
     getTotalBeers = () => {
-        let countArray = this.state.beers.map(beer => beer.quantity);
+        let countArray = this.context.beers.map(beer => beer.quantity);
         let totalCount = countArray.reduce((a, b) => a + b, 0);
         return totalCount
     }
 
     getAverageCellarRating = () => {
-        let arrayOfAverages = this.state.beers.map(beer => beer.untappd_rating*beer.quantity)
+        let arrayOfAverages = this.context.beers.map(beer => beer.untappd_rating*beer.quantity)
         let totalScore = arrayOfAverages.reduce((a, b) => a + b, 0);
         let totalCount = this.getTotalBeers();
         return (totalScore/totalCount).toFixed(2);
     }
 
     getHighestRatedBeer = () => {
-        let arrayCopy = this.state.beers.slice();
+        let arrayCopy = this.context.beers.slice();
         let sortedArray = arrayCopy.sort((a, b) => a.untappd_rating - b.untappd_rating)
         let highestBeer = sortedArray.pop();
         return highestBeer;
@@ -73,7 +62,7 @@ class MainPage extends React.Component {
 
 
     getHighestCountBeer = () => {
-        let arrayCopy = this.state.beers.slice();
+        let arrayCopy = this.context.beers.slice();
         let sortedArray = arrayCopy.sort((a, b) => a.quantity - b.quantity);
         let mostCountedBeer = sortedArray.pop();
         return mostCountedBeer;
@@ -94,11 +83,11 @@ class MainPage extends React.Component {
 
         //then sort accordingly
         if (sortOption === "quantity-low" || sortOption === "rating-low") {
-            this.setState({ beers: this.state.beers.sort((a, b) => a[keyName] - b[keyName]) });
+            this.context.updateBeersInState(this.context.beers.sort((a, b) => a[keyName] - b[keyName]));
         } else if (sortOption === "quantity-high" || sortOption === "rating-high") {
-            this.setState({ beers: this.state.beers.sort((a, b) => b[keyName] - a[keyName]) });
+            this.context.updateBeersInState(this.context.beers.sort((a, b) => b[keyName] - a[keyName]));
         } else if (sortOption === "a-z") { //sorting alpabetically
-            this.setState({ beers: this.state.beers.sort((a, b) => {
+            this.context.updateBeersInState(this.context.beers.sort((a, b) => {
                 let aName = a[keyName];
                 let bName = b[keyName];
                 if(aName < bName){
@@ -109,9 +98,9 @@ class MainPage extends React.Component {
                     return 0
                 }
             } 
-            )})
+            ))
         } else if (sortOption === "z-a") { //sorting reverse alphabetically
-            this.setState({ beers: this.state.beers.sort((a, b) => {
+            this.context.updateBeersInState(this.context.beers.sort((a, b) => {
                 let aName = a[keyName];
                 let bName = b[keyName];
                 if(aName > bName){
@@ -122,12 +111,12 @@ class MainPage extends React.Component {
                     return 0
                 }
             } 
-            )})
+            ))
         }
     }
     
     render() {
-        let beers = this.state.beers.map((beer, i) => {
+        let beers = this.context.beers.map((beer, i) => {
             return <Beer 
                         key={i}
                         index={i} //so the component knows which index it is in the main-page state
