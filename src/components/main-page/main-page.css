@@ -1,7 +1,11 @@
+.user-login-page {
+    margin-top: 100px;
+}
+
 #logout-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 30px;
+    right: 30px;
     background-color: gainsboro;
 }
 
@@ -9,7 +13,6 @@
     width: 200px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
     text-align: center;
     font-family: 'Rock Salt';
 }

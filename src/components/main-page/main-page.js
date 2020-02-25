@@ -114,6 +114,32 @@ class MainPage extends React.Component {
             ))
         }
     }
+
+    renderNavButtons = () => {
+        if(TokenService.hasAuthToken()) {
+            return (
+                <Link to='/'>
+                    <button 
+                        id="logout-button"
+                        onClick={this.handleLogout}
+                    >
+                        Logout
+                    </button>
+                </Link>
+            )
+        } else {
+            return (
+                <Link to='/'>
+                    <button 
+                        id="logout-button"
+                        onClick={this.handleLogout}
+                    >
+                        End Demo
+                    </button>
+                </Link>
+            )
+        }
+    }
     
     render() {
         let beers = this.context.beers.map((beer, i) => {
@@ -139,17 +165,12 @@ class MainPage extends React.Component {
         let highestBeer = this.getHighestRatedBeer() || ' ';
 
         let mostBeer = this.getHighestCountBeer() || ' ';
+
+        let navButtons = this.renderNavButtons();
         
         return (
             <div className='user-login-page'>
-                <Link to='/'>
-                    <button 
-                        id="logout-button"
-                        onClick={this.handleLogout}
-                    >
-                        Logout
-                    </button>
-                </Link>
+                {navButtons}
         
                 <h1 className="hero-title">My Cellar</h1>
 
