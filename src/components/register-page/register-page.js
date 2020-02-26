@@ -36,7 +36,8 @@ class RegisterPage extends React.Component {
         e.preventDefault();
         this.setState({ error: null });
         const { username, user_password } = this.state;
-        const newUser = { username, user_password };
+        const adjustedUsername = username.toLowerCase().replace(/\s/g, ''); //to make case insensitive and remove any spaces
+        const newUser = { adjustedUsername, user_password };
 
         AuthApiService.postUser(newUser)
             .then(res => {

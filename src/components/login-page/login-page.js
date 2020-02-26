@@ -20,7 +20,7 @@ class LoginPage extends React.Component {
         const { username, user_password } = this.state;
 
         AuthApiService.postLogin({
-            username: username,
+            username: username.toLowerCase().replace(/\s/g, ''), //to make case insensitive and remove any spaces
             user_password: user_password
         })
             .then(res => {
