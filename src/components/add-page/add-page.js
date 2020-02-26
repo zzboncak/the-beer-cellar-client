@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import config from '../../config';
 import './add-page.css';
 import BeerResult from '../beerResult/beerResult';
+import UntappdLogo from '../../images/pbu_80_grey.png';
 
 class AddPage extends React.Component {
     constructor(props) {
@@ -83,6 +84,8 @@ class AddPage extends React.Component {
                 <section className="results-section">
                     {searchResults}             
                 </section>
+
+                <img id="untappd-logo" src={UntappdLogo} alt='powered by Untappd'/>
             </div>
         )
     }

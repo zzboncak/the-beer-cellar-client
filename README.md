@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The Beer Cellar
 
-## Available Scripts
+A place to store your carefully curated craft beers.
 
-In the project directory, you can run:
+## Live Application
 
-### `npm start`
+Visit [The Beer Cellar](https://the-beer-cellar-app.now.sh/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Instructions
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**To run the app in demo mode** click the demo button in the upper left corner.
 
-### `npm test`
+*Note:* This data is not permanently stored.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Demo Button](./src/images/demo-button.png)
 
-### `npm run build`
+**Register a new account**
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Click on the register button in the upper right corner of the screen and fill out the form.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![Register button](./src/images/register-button.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**If you already have an account, log in**
 
-### `npm run eject`
+![Login button](./src/images/login-button.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### The Dashboard
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+When you first login, you'll see a dashboard of your cellar. This is high-level information that includes the total number of bottles in your cellar, your cellar's average Untappd rating (out of 5), your beer with the highest rating, and the beer of which you have the most.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Dashboard view](./src/images/dashboard-view.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### The Cellar
 
-## Learn More
+Below the dashboard, you'll see a list of your beers. You can use the sort bar to sort them alphabetically, by quantity, or by Untappd rating.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Cellar view](./src/images/cellar-view.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Click on an individual item to see it expand for more info on the beer (and to have the option to delete the beer).
 
-### Code Splitting
+![Expanded view](./src/images/expanded-view.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**Click** on the `+` or `-` buttons adjacent to a beer's quantity to adjust the amount in your cellar
 
-### Analyzing the Bundle Size
+**Click** on the ❌ in the expanded view to delete the beer from your cellar completely.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+**Click** on the add button if you want to add a beer to your cellar.
 
-### Making a Progressive Web App
+![Add button](./src/images/add-button.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+This search form is powered by Untappd and pulls useful community data about virtually any produced beer worldwide. Type in any search term to look for a beer to add to your cellar.
 
-### Advanced Configuration
+![Add page](./src/images/add-page.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Logout
 
-### Deployment
+To logout at any point. Click on the `Logout` button in the upper right hand corner of the main page.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+![Logout button](./src/images/logout-button.png)
 
-### `npm run build` fails to minify
+### Developed by Zachary Zboncak (zachary.zboncak@gmail.com)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Powered by [Untappd](https://untappd.com/api/docs)
