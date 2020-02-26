@@ -60,4 +60,17 @@ To logout at any point. Click on the `Logout` button in the upper right hand cor
 
 ### Developed by Zachary Zboncak (zachary.zboncak@gmail.com)
 
+### Technologies used
+
+**Client-side:**
+- React.js
+- HTML
+- CSS
+- Javascript
+
+**Server-side: [The Beer Cellar API](https://github.com/zzboncak/the-beer-cellar-api)**
+- Node.js
+- Express
+- PostgreSQL
+
 Powered by [Untappd](https://untappd.com/api/docs)
