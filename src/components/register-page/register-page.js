@@ -11,19 +11,19 @@ class RegisterPage extends React.Component {
         password_confirm: '',
         password_touched: false,
         error: null
-    }
+    };
 
     onUsernameChange = (e) => {
         this.setState({
             username: e.target.value
-        })
+        });
     }
 
     onUserPasswordChange = (e) => {
         this.setState({
             user_password: e.target.value,
             password_touched: true
-        })
+        });
     }
 
     onPasswordConfirmChange = (e) => {
@@ -47,10 +47,10 @@ class RegisterPage extends React.Component {
                     error: null
                 });
                 TokenService.saveAuthToken(res);
-                this.props.history.push('/cellar')
+                this.props.history.push('/cellar');
             })
             .catch(res => {
-                this.setState({ error: res.error })
+                this.setState({ error: res.error });
             })
     }
 
@@ -58,19 +58,19 @@ class RegisterPage extends React.Component {
         const REGEX_UPPER_LOWER_NUMBER = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[\S]+/;
         
         if(this.state.user_password.length < 8) {
-            return 'Password must be longer than 8 characters'
+            return 'Password must be longer than 8 characters';
         } else if (this.state.user_password.length > 72) {
-            return 'Password must be longer shorter than 72 characters'
+            return 'Password must be longer shorter than 72 characters';
         } else if (this.state.user_password.startsWith(' ') || this.state.user_password.endsWith(' ')) {
-            return 'Passwords cannot start or end with a space'
+            return 'Passwords cannot start or end with a space';
         } else if (!REGEX_UPPER_LOWER_NUMBER.test(this.state.user_password)) {
-            return 'Password must contain 1 upper case, lower case, and number'
+            return 'Password must contain 1 upper case, lower case, and number';
         } else if (this.state.user_password !== this.state.password_confirm) {
-            return 'Passwords must match'
+            return 'Passwords must match';
         } else if (this.state.username === '') {
-            return 'Please enter a username'
+            return 'Please enter a username';
         } else {
-            return null
+            return null;
         }
     }
     

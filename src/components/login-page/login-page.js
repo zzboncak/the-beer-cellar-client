@@ -11,11 +11,11 @@ class LoginPage extends React.Component {
         user_password: '',
         form_touched: false,
         error: null
-    }
+    };
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({ error: null })
+        this.setState({ error: null });
 
         const { username, user_password } = this.state;
 
@@ -32,22 +32,22 @@ class LoginPage extends React.Component {
                 this.props.history.push('/cellar');
             })
             .catch(res => {
-                this.setState({ error: res.error })
-            })
+                this.setState({ error: res.error });
+            });
     }
 
     onUsernameChange = (e) => {
         this.setState({
             username: e.target.value,
             form_touched: true
-        })
+        });
     }
 
     onUserPasswordChange = (e) => {
         this.setState({
             user_password: e.target.value,
             form_touched: true
-        })
+        });
     }
 
     validateForm = () => {

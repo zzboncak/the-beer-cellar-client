@@ -9,9 +9,8 @@ class BeerResult extends React.Component {
 
     handleAdd = (e) => {
         e.preventDefault();
-        let userToken = TokenService.hasAuthToken();
 
-        if(userToken) {
+        if(TokenService.hasAuthToken()) {
             let url = `${config.API_ENDPOINT}/cellar/${this.props.bid}`;
             let options = {
                 method: 'post',
@@ -23,7 +22,7 @@ class BeerResult extends React.Component {
                 .then(res => this.props.history.push('/cellar'))
                 .catch(err => console.log(err))
         } else {
-            let inventory_id = this.context.beers[this.context.beers.length - 1].inventory_id + 1;
+            let inventory_id = this.context.beers[this.context.beers.length - 1].inventory_id + 1; //the inventory_id is required to delete the item later on for the user
             let newBeers = [
                 ...this.context.beers, 
                 {

@@ -9,12 +9,12 @@ class Beer extends React.Component {
 
     state = {
         isExpanded: false,
-    }
+    };
 
     handleBeerClick = (e) => {
         this.setState({
             isExpanded: !this.state.isExpanded
-        })
+        });
     }
 
     updateQuantity(newQuantity) {
@@ -35,15 +35,15 @@ class Beer extends React.Component {
             })
                 .then(res => {
                     if(!res.ok) {
-                        throw new Error('Could not update quantity. Sorry bro...')
+                        throw new Error("Could not update quantity. Sorry bro...");
                     }
                     //if the API call is successful, also update in the app's state for quick rerender of the quantity amount
-                    this.context.updateSingleBeerInState(this.props.index, 'quantity', newQuantity)
+                    this.context.updateSingleBeerInState(this.props.index, 'quantity', newQuantity);
                 })
-                .catch(err => console.log(err))
+                .catch(err => console.log(err));
         } else {
             //if in demo mode, bypass the API call and just update the quantity in state
-            this.context.updateSingleBeerInState(this.props.index, 'quantity', newQuantity)
+            this.context.updateSingleBeerInState(this.props.index, 'quantity', newQuantity);
         }
     }
 
@@ -63,7 +63,7 @@ class Beer extends React.Component {
 
     handleDelete = () => {
         if(TokenService.hasAuthToken()) {
-            if(window.confirm('Are you sure you want to delete this beer?')) {
+            if(window.confirm('Are you sure you want to delete this beer?')) { //because this permanently deletes the inventory line from the database, confirm with the user he/she wants to delete
                 fetch(`${config.API_ENDPOINT}/cellar/inventory`, {
                     method: 'DELETE',
                     headers: {
@@ -79,8 +79,6 @@ class Beer extends React.Component {
                         this.props.handleBeerDelete(this.props.inventory);
                     })
                     .catch(err => console.log(err))
-            } else {
-                console.log(`Good call, that's a good beer`);
             }
         } else {
             if(window.confirm('Are you sure you want to delete this beer?')) {

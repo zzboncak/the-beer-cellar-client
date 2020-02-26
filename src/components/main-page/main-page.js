@@ -20,14 +20,14 @@ class MainPage extends React.Component {
             })
                 .then(res => {
                     if(!res.ok) {
-                        throw new Error('Could not load your beers! Sorry man...')
+                        throw new Error('Could not load your beers! Sorry man...');
                     }
-                    return res.json()
+                    return res.json();
                 })
                 .then(data => {
                     this.context.updateBeersInState(data);
                 })
-                .catch(err => console.log(err))
+                .catch(err => console.log(err));
         }
     }
 
@@ -37,13 +37,13 @@ class MainPage extends React.Component {
 
     handleBeerDelete = (inventory_id) => {
         let newState = this.context.beers.filter(beer => beer.inventory_id !== inventory_id);
-        this.context.updateBeersInState(newState)
+        this.context.updateBeersInState(newState);
     }
 
     getTotalBeers = () => {
         let countArray = this.context.beers.map(beer => beer.quantity);
         let totalCount = countArray.reduce((a, b) => a + b, 0);
-        return totalCount
+        return totalCount;
     }
 
     getAverageCellarRating = () => {
@@ -98,7 +98,7 @@ class MainPage extends React.Component {
                     return 0
                 }
             } 
-            ))
+            ));
         } else if (sortOption === "z-a") { //sorting reverse alphabetically
             this.context.updateBeersInState(this.context.beers.sort((a, b) => {
                 let aName = a[keyName];
@@ -111,7 +111,7 @@ class MainPage extends React.Component {
                     return 0
                 }
             } 
-            ))
+            ));
         }
     }
 
