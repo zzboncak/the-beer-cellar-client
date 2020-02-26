@@ -33,11 +33,10 @@ class BeerResult extends React.Component {
                     brewery_name: this.props.brewery_name,
                     bid: this.props.bid,
                     inventory_id: inventory_id,
-                    untappd_rating: Math.random()*5, //specific untappd rating info not available in demo mode
+                    untappd_rating: Math.random()*5, //specific Untappd rating info not available in demo mode
                     quantity: 1
                 }
             ];
-            console.log(newBeers);
             this.context.updateBeersInState(newBeers);
             this.props.history.push('/cellar');
         }

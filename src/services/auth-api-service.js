@@ -2,7 +2,6 @@ import config from '../config'
 
 const AuthApiService = {
   postLogin(credentials) {
-    //console.log(process.env.REACT_APP_isProd);
     return fetch(`${config.API_ENDPOINT}/auth/login`, {
       method: 'POST',
       headers: {

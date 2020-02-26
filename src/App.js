@@ -34,6 +34,7 @@ class App extends React.Component {
       updateBeersInState: this.updateBeersInState,
       updateSingleBeerInState: this.updateSingleBeerInState,
     }
+    
     return (
       <BeerContext.Provider value={contextValue}>
         <main className='App'>
