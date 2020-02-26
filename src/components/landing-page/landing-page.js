@@ -24,7 +24,7 @@ class LandingPage extends React.Component {
             return (
                 <div className="auth-buttons">
                     <Link to='/cellar'>
-                        <button className="auth-button">See my cellar</button>
+                        <button className="auth-button">Go to cellar</button>
                     </Link>
                 </div>
             )
