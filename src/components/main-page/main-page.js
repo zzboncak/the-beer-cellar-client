@@ -153,7 +153,6 @@ class MainPage extends React.Component {
                         description={beer.beer_description}
                         brewery={beer.brewery_name}
                         image={beer.beer_image}
-                        updateState={this.updateBeerInState}
                         handleBeerDelete={this.handleBeerDelete}
                     />
         })

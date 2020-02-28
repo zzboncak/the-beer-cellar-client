@@ -38,11 +38,11 @@ class App extends React.Component {
 		return (
 		<BeerContext.Provider value={contextValue}>
 			<main className='App'>
-			<Route exact path='/' component={LandingPage} />
-			<PublicOnlyRoute exact path='/login' component={LoginPage} />
-			<PublicOnlyRoute exact path='/register' component={RegisterPage} />
-			<Route exact path='/cellar' component={MainPage} />
-			<Route exact path='/add-form' component={AddPage} />
+				<Route exact path='/' component={LandingPage} />
+				<PublicOnlyRoute exact path='/login' component={LoginPage} />
+				<PublicOnlyRoute exact path='/register' component={RegisterPage} />
+				<Route exact path='/cellar' component={MainPage} />
+				<Route exact path='/add-form' component={AddPage} />
 			</main>
 		</BeerContext.Provider>
 		);

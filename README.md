@@ -12,33 +12,33 @@ Visit [The Beer Cellar](https://the-beer-cellar-app.now.sh/)
 
 *Note:* This data is not permanently stored.
 
-![Demo Button](./src/images/demo-button.png)
+<img src="./src/images/demo-button.png" alt="demo button" width="250"/>
 
 **Register a new account**
 
 Click on the register button in the upper right corner of the screen and fill out the form.
 
-![Register button](./src/images/register-button.png)
+<img src="./src/images/register-button.png" alt="Register button" width="250"/>
 
 **If you already have an account, log in**
 
-![Login button](./src/images/login-button.png)
+<img src="./src/images/login-button.png" alt="Login button" width="250"/>
 
 ### The Dashboard
 
 When you first login, you'll see a dashboard of your cellar. This is high-level information that includes the total number of bottles in your cellar, your cellar's average Untappd rating (out of 5), your beer with the highest rating, and the beer of which you have the most.
 
-![Dashboard view](./src/images/dashboard-view.png)
+<img src="./src/images/dashboard-view.png" alt="Dashboard view" width="250"/>
 
 ### The Cellar
 
 Below the dashboard, you'll see a list of your beers. You can use the sort bar to sort them alphabetically, by quantity, or by Untappd rating.
 
-![Cellar view](./src/images/cellar-view.png)
+<img src="./src/images/cellar-view.png" alt="Cellar view" width="250"/>
 
 Click on an individual item to see it expand for more info on the beer (and to have the option to delete the beer).
 
-![Expanded view](./src/images/expanded-view.png)
+<img src="./src/images/expanded-view.png" alt="Expanded view" width="250"/>
 
 **Click** on the `+` or `-` buttons adjacent to a beer's quantity to adjust the amount in your cellar
 
@@ -46,31 +46,32 @@ Click on an individual item to see it expand for more info on the beer (and to h
 
 **Click** on the add button if you want to add a beer to your cellar.
 
-![Add button](./src/images/add-button.png)
+<img src="./src/images/add-button.png" alt="Add button" width="250"/>
 
 This search form is powered by Untappd and pulls useful community data about virtually any produced beer worldwide. Type in any search term to look for a beer to add to your cellar.
 
-![Add page](./src/images/add-page.png)
+<img src="./src/images/add-page.png" alt="Add page" width="250"/>
 
 ### Logout
 
 To logout at any point. Click on the `Logout` button in the upper right hand corner of the main page.
 
-![Logout button](./src/images/logout-button.png)
+<img src="./src/images/logout-button.png" alt="Logout button" width="250"/>
 
 ### Developed by Zachary Zboncak (zachary.zboncak@gmail.com)
 
 ### Technologies used
 
 **Client-side:**
-- React.js
-- HTML
-- CSS
-- Javascript
+- [React.js](https://reactjs.org/)
+- [HTML](https://en.wikipedia.org/wiki/HTML)
+- [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [Javascript](https://en.wikipedia.org/wiki/JavaScript)
 
 **Server-side: [The Beer Cellar API](https://github.com/zzboncak/the-beer-cellar-api)**
-- Node.js
-- Express
-- PostgreSQL
+- [Node.js](https://nodejs.org/en/)
+- [Request](https://github.com/request/request)
+- [Express](https://expressjs.com/)
+- [PostgreSQL](https://www.postgresql.org/)
 
 Powered by [Untappd](https://untappd.com/api/docs)
