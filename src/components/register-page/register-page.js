@@ -6,7 +6,7 @@ import TokenService from '../../services/token-service';
 
 class RegisterPage extends React.Component {
     state = {
-        username: '',
+        input_username: '',
         user_password: '',
         password_confirm: '',
         password_touched: false,
@@ -15,7 +15,7 @@ class RegisterPage extends React.Component {
 
     onUsernameChange = (e) => {
         this.setState({
-            username: e.target.value
+            input_username: e.target.value
         });
     }
 
@@ -35,14 +35,14 @@ class RegisterPage extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.setState({ error: null });
-        const { username, user_password } = this.state;
-        const adjustedUsername = username.toLowerCase().replace(/\s/g, ''); //to make case insensitive and remove any spaces
-        const newUser = { adjustedUsername, user_password };
+        const { input_username, user_password } = this.state;
+        const username = input_username.toLowerCase().replace(/\s/g, ''); //to make case insensitive and remove any spaces
+        const newUser = { username, user_password };
 
         AuthApiService.postUser(newUser)
             .then(res => {
                 this.setState({
-                    username: '',
+                    input_username: '',
                     user_password: '',
                     error: null
                 });
@@ -67,7 +67,7 @@ class RegisterPage extends React.Component {
             return 'Password must contain 1 upper case, lower case, and number';
         } else if (this.state.user_password !== this.state.password_confirm) {
             return 'Passwords must match';
-        } else if (this.state.username === '') {
+        } else if (this.state.input_username === '') {
             return 'Please enter a username';
         } else {
             return null;
@@ -95,7 +95,7 @@ class RegisterPage extends React.Component {
                             name="username" 
                             type="text" 
                             placeholder="ex: Gandalf the Grey"
-                            value={this.state.username}
+                            value={this.state.input_username}
                             onChange={this.onUsernameChange} 
                         />
                         <br/>
