@@ -41,6 +41,31 @@
 	margin-right: auto;
 }
 
+@keyframes loadingTransition {
+	0% {
+		opacity: 0;
+		height: 0px;
+	}
+	100% {
+		opacity: 1;
+		height: 300px;
+	}
+}
+
+.beer-loading-icon-container, .beer-loading-icon {
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.beer-loading-icon {
+	animation: 0.7s ease 0s 1 loadingTransition;
+}
+
+.loading-text {
+	text-align: center;
+}
+
 @media screen and (min-width: 600px) {
 	.add-form,
 	.results-section {

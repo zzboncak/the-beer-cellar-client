@@ -4,6 +4,16 @@ import config from "../../config";
 import "./add-page.css";
 import BeerResult from "../beerResult/beerResult";
 import UntappdLogo from "../../images/pbu_80_grey.png";
+import BeerImage from "../../images/beer-icon.png"
+
+const BeerIcon = () => {
+	return (
+		<div className="beer-loading-icon-container">
+			<img src={BeerImage} className="beer-loading-icon" />
+			<p className="loading-text">Your beers are loading</p>
+		</div>
+	)
+}
 
 const AddPageFunction = (props) => {
 	const [userSearch, setUserSearch] = useState("");
@@ -59,7 +69,7 @@ const AddPageFunction = (props) => {
 
 			<section className="results-section">
 				{searching ? (
-					<div>Loading your beers</div>
+					<BeerIcon />
 				) : beersFromSearch.length === 0 && !searching && touched ? (
 					<div>No beers found</div>
 				) : (
