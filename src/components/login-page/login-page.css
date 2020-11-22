@@ -1,63 +1,64 @@
 .page-title {
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    text-align: center;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	text-align: center;
 }
 
 .login-form {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .form-input {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .user-info {
-    border-radius: 6px;
+	border-radius: 6px;
 }
 
 .register {
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    margin-top: 100px;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 100px;
 }
 
 .button-container {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
 }
 
 .validate-message {
-    color: red;
-    text-align: center;
+	color: red;
+	text-align: center;
 }
 
 .alert {
-    color: red;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+	color: red;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
 
-#cancel-button, #submit-button {
-    background-color: gainsboro;
+#cancel-button,
+#submit-button {
+	background-color: gainsboro;
 }
 
 #register-button {
-    background-color: ghostwhite;
+	background-color: ghostwhite;
 }
 
 @media screen and (min-width: 600px) {
-    .login-form {
-        width: 500px;
-    }
+	.login-form {
+		width: 500px;
+	}
 }

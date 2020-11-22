@@ -1,105 +1,105 @@
 .user-login-page {
-    margin-top: 100px;
-    margin-bottom: 100px;
+	margin-top: 100px;
+	margin-bottom: 100px;
 }
 
 #logout-button {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background-color: ghostwhite;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	background-color: ghostwhite;
 }
 
 .hero-title {
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-family: 'Rock Salt';
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-family: "Rock Salt";
 }
 
 .cellar-dashboard {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Open Sans';
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Open Sans";
 }
 
 .dash-item {
-    border: 1px solid black;
-    border-radius: 35px;
-    margin-top: 30px;
-    width: 200px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: ghostwhite;
-
+	border: 1px solid black;
+	border-radius: 35px;
+	margin-top: 30px;
+	width: 200px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: ghostwhite;
 }
 
 .cellar {
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
 
 .beers-container {
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #add-button {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 10px;
-    right: 10px;
-    border-radius: 60px;
-    border: 1px solid black;
-    font-size: 24px;
-    background-color: gainsboro;
+	position: fixed;
+	width: 60px;
+	height: 60px;
+	bottom: 10px;
+	right: 10px;
+	border-radius: 60px;
+	border: 1px solid black;
+	font-size: 24px;
+	background-color: gainsboro;
 }
 
 #add-button:hover {
-    font-size: 36px;
+	font-size: 36px;
 }
 
 .sort-bar {
-    margin-top: 60px;
+	margin-top: 60px;
 }
 
 #sort-options {
-    background-color: ghostwhite;
-    text-align: center;
+	background-color: ghostwhite;
+	text-align: center;
 }
 
 @media screen and (min-width: 600px) {
-    .hero-title {
-        width: 300px;
-        font-size: 36px;
-    }
-    
-    .dash-item {
-        width: 300px;
-        font-size: 24px;
-    }
+	.hero-title {
+		width: 300px;
+		font-size: 36px;
+	}
 
-    .sort-bar {
-        font-size: 24px;
-    }
+	.dash-item {
+		width: 300px;
+		font-size: 24px;
+	}
 
-    .cellar, .beers-container {
-        width: 600px;
-    }
+	.sort-bar {
+		font-size: 24px;
+	}
 
-    #add-button {
-        right: calc(50% - 400px);
-        width: 80px;
-        height: 80px;
-        border-radius: 80px;
-    }
+	.cellar,
+	.beers-container {
+		width: 600px;
+	}
+
+	#add-button {
+		right: calc(50% - 400px);
+		width: 80px;
+		height: 80px;
+		border-radius: 80px;
+	}
 }

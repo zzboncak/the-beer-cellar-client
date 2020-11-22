@@ -10,7 +10,7 @@ Visit [The Beer Cellar](https://the-beer-cellar-app.now.sh/)
 
 **To run the app in demo mode** click the demo button in the upper left corner.
 
-*Note:* This data is not permanently stored.
+_Note:_ This data is not permanently stored.
 
 <img src="./src/images/demo-button.png" alt="demo button" width="250"/>
 
@@ -63,15 +63,17 @@ To logout at any point. Click on the `Logout` button in the upper right hand cor
 ### Technologies used
 
 **Client-side:**
-- [React.js](https://reactjs.org/)
-- [HTML](https://en.wikipedia.org/wiki/HTML)
-- [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-- [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+
+-   [React.js](https://reactjs.org/)
+-   [HTML](https://en.wikipedia.org/wiki/HTML)
+-   [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+-   [Javascript](https://en.wikipedia.org/wiki/JavaScript)
 
 **Server-side: [The Beer Cellar API](https://github.com/zzboncak/the-beer-cellar-api)**
-- [Node.js](https://nodejs.org/en/)
-- [Request](https://github.com/request/request)
-- [Express](https://expressjs.com/)
-- [PostgreSQL](https://www.postgresql.org/)
+
+-   [Node.js](https://nodejs.org/en/)
+-   [Request](https://github.com/request/request)
+-   [Express](https://expressjs.com/)
+-   [PostgreSQL](https://www.postgresql.org/)
 
 Powered by [Untappd](https://untappd.com/api/docs)

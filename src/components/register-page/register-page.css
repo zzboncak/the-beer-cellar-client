@@ -1,60 +1,62 @@
 .page-title {
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    text-align: center;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	text-align: center;
 }
 
-.register-form, .form-instructions, .error-message {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+.register-form,
+.form-instructions,
+.error-message {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .form-input {
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .user-info {
-    border-radius: 6px;
+	border-radius: 6px;
 }
 
 .button-container {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
 }
 
 .validate-message {
-    color: red;
-    text-align: center;
+	color: red;
+	text-align: center;
 }
 
 .form-instructions {
-    color: gray;
-    font-style: italic;
-    text-align: center;
+	color: gray;
+	font-style: italic;
+	text-align: center;
 }
 
 .error-message {
-    color: red;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+	color: red;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .register-form-button {
-    background-color: gainsboro;
+	background-color: gainsboro;
 }
 
 @media screen and (min-width: 600px) {
-    .register-form {
-        width: 500px;
-    }
+	.register-form {
+		width: 500px;
+	}
 
-    .form-instructions {
-        width: 400px;
-    }
+	.form-instructions {
+		width: 400px;
+	}
 }

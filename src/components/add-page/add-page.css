@@ -1,52 +1,53 @@
 .page-title {
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    text-align: center;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	text-align: center;
 }
 
 .add-form {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .add-page-button {
-    background-color: gainsboro;
+	background-color: gainsboro;
 }
 
 .beer-info {
-    border-radius: 6px;
+	border-radius: 6px;
 }
 
 .button-container {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
 }
 
 .results-section {
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #untappd-logo {
-    display: block;
-    width: 100px;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
+	display: block;
+	width: 100px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 @media screen and (min-width: 600px) {
-    .add-form, .results-section {
-        width: 500px;
-    }
+	.add-form,
+	.results-section {
+		width: 500px;
+	}
 
-    #untappd-logo {
-        width: 150px;
-    }
+	#untappd-logo {
+		width: 150px;
+	}
 }
