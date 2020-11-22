@@ -20,7 +20,7 @@ const AddPageFunction = (props) => {
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => {
-				setSearching(false)
+				setSearching(false);
 				setUserSearch("");
 				setBeersFromSearch(data.response.beers.items);
 			});
@@ -32,59 +32,54 @@ const AddPageFunction = (props) => {
 
 	return (
 		<div className="add-page">
-				<h2 className="page-title">Add a beer</h2>
+			<h2 className="page-title">Add a beer</h2>
 
-				<form className="add-form" onSubmit={handleAddFormSubmit}>
-					<fieldset className="beer-info">
-						<label htmlFor="username">Search:</label>
-						<br />
-						<input
-							name="username"
-							type="search"
-							placeholder="ex: Pliny the Elder"
-							value={userSearch}
-							onChange={e => onSearchChange(e)}
+			<form className="add-form" onSubmit={handleAddFormSubmit}>
+				<fieldset className="beer-info">
+					<label htmlFor="username">Search:</label>
+					<br />
+					<input
+						name="username"
+						type="search"
+						placeholder="ex: Pliny the Elder"
+						value={userSearch}
+						onChange={(e) => onSearchChange(e)}
+					/>
+
+					<div className="button-container">
+						<button className="add-page-button" type="submit">
+							Let's Go
+						</button>
+						<Link to="/cellar">
+							<button className="add-page-button">Cancel</button>
+						</Link>
+					</div>
+				</fieldset>
+			</form>
+
+			<section className="results-section">
+				{searching ? (
+					<div>Loading your beers</div>
+				) : beersFromSearch.length === 0 && !searching && touched ? (
+					<div>No beers found</div>
+				) : (
+					beersFromSearch.map((item, i) => (
+						<BeerResult
+							key={i}
+							bid={item.beer.bid}
+							beer_name={item.beer.beer_name}
+							beer_description={item.beer.beer_description}
+							beer_label={item.beer.beer_label}
+							brewery_name={item.brewery.brewery_name}
+							history={props.history}
 						/>
+					))
+				)}
+			</section>
 
-						<div className="button-container">
-							<button className="add-page-button" type="submit">
-								Let's Go
-							</button>
-							<Link to="/cellar">
-								<button className="add-page-button">
-									Cancel
-								</button>
-							</Link>
-						</div>
-					</fieldset>
-				</form>
-
-				<section className="results-section">
-					{searching 
-						? <div>Loading your beers</div> 
-						: (beersFromSearch.length === 0 && !searching && touched)
-						? <div>No beers found</div> 
-						: beersFromSearch.map((item, i) => (
-							<BeerResult
-								key={i}
-								bid={item.beer.bid}
-								beer_name={item.beer.beer_name}
-								beer_description={item.beer.beer_description}
-								beer_label={item.beer.beer_label}
-								brewery_name={item.brewery.brewery_name}
-								history={props.history}
-							/>	
-						))
-					}
-				</section>
-
-				<img
-					id="untappd-logo"
-					src={UntappdLogo}
-					alt="powered by Untappd"
-				/>
-			</div>
-	)
-}
+			<img id="untappd-logo" src={UntappdLogo} alt="powered by Untappd" />
+		</div>
+	);
+};
 
 export default AddPageFunction;
