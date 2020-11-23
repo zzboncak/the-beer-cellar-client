@@ -5,7 +5,7 @@ const BeerIcon = (props) => {
 	const loadingMessage = props.message ? props.message : "Loading...";
 	return (
 		<div className="beer-loading-icon-container">
-			<img src={BeerImage} className="beer-loading-icon" />
+			<img src={BeerImage} className="beer-loading-icon" alt="Loading..."/>
 			<p className="loading-text">{loadingMessage}</p>
 		</div>
 	);
