@@ -11,7 +11,7 @@ class LoginPage extends React.Component {
 		user_password: "",
 		form_touched: false,
 		error: null,
-		fetching: false
+		fetching: false,
 	};
 
 	handleSubmit = (e) => {
@@ -28,7 +28,7 @@ class LoginPage extends React.Component {
 				this.setState({
 					username: "",
 					user_password: "",
-					fetching: false
+					fetching: false,
 				});
 				TokenService.saveAuthToken(res.authToken);
 				this.props.history.push("/cellar");
@@ -102,7 +102,9 @@ class LoginPage extends React.Component {
 							<button
 								type="submit"
 								id="submit-button"
-								disabled={validateMessage || this.state.fetching}
+								disabled={
+									validateMessage || this.state.fetching
+								}
 							>
 								Let's Go
 							</button>
@@ -113,7 +115,9 @@ class LoginPage extends React.Component {
 					</fieldset>
 				</form>
 
-				{this.state.fetching && <BeerLoader message="Logging you in. Hang tight." />}
+				{this.state.fetching && (
+					<BeerLoader message="Logging you in. Hang tight." />
+				)}
 
 				<section className="register">
 					<p>Don't have an account yet?</p>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./register-page.css";
 import AuthApiService from "../../services/auth-api-service";
 import TokenService from "../../services/token-service";
+import BeerLoader from "../beer-loader/beer-loader";
 
 class RegisterPage extends React.Component {
 	state = {
@@ -11,6 +12,7 @@ class RegisterPage extends React.Component {
 		password_confirm: "",
 		password_touched: false,
 		error: null,
+		fetching: false,
 	};
 
 	onUsernameChange = (e) => {
@@ -34,7 +36,7 @@ class RegisterPage extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.setState({ error: null });
+		this.setState({ error: null, fetching: true });
 		const { input_username, user_password } = this.state;
 		const username = input_username.toLowerCase().replace(/\s/g, ""); //to make case insensitive and remove any spaces
 		const newUser = { username, user_password };
@@ -45,12 +47,13 @@ class RegisterPage extends React.Component {
 					input_username: "",
 					user_password: "",
 					error: null,
+					fetching: false,
 				});
 				TokenService.saveAuthToken(res);
 				this.props.history.push("/cellar");
 			})
 			.catch((res) => {
-				this.setState({ error: res.error });
+				this.setState({ error: res.error, fetching: false });
 			});
 	};
 
@@ -126,7 +129,9 @@ class RegisterPage extends React.Component {
 							<button
 								className="register-form-button"
 								type="submit"
-								disabled={validateMessage}
+								disabled={
+									validateMessage || this.state.fetching
+								}
 							>
 								Submit
 							</button>
@@ -143,6 +148,9 @@ class RegisterPage extends React.Component {
 					at least one uppercase letter, one lowercase letter, and one
 					number
 				</p>
+				{this.state.fetching && (
+					<BeerLoader message="Creating you a sick account. Hang tight!" />
+				)}
 				<p className="validate-message">
 					{this.state.password_touched && validateMessage}
 				</p>
