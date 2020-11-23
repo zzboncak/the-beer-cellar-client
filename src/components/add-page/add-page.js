@@ -48,7 +48,11 @@ const AddPageFunction = (props) => {
 					/>
 
 					<div className="button-container">
-						<button className="add-page-button" type="submit" disabled={!userSearch}>
+						<button
+							className="add-page-button"
+							type="submit"
+							disabled={!userSearch}
+						>
 							Let's Go
 						</button>
 						<Link to="/cellar">
