@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import TokenService from "../../services/token-service";
 import AuthApiService from "../../services/auth-api-service";
+import BeerLoader from "../beer-loader/beer-loader";
 import "./login-page.css";
 
 class LoginPage extends React.Component {
@@ -10,11 +11,12 @@ class LoginPage extends React.Component {
 		user_password: "",
 		form_touched: false,
 		error: null,
+		fetching: false
 	};
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.setState({ error: null });
+		this.setState({ error: null, fetching: true });
 
 		const { username, user_password } = this.state;
 
@@ -26,12 +28,13 @@ class LoginPage extends React.Component {
 				this.setState({
 					username: "",
 					user_password: "",
+					fetching: false
 				});
 				TokenService.saveAuthToken(res.authToken);
 				this.props.history.push("/cellar");
 			})
 			.catch((res) => {
-				this.setState({ error: res.error });
+				this.setState({ error: res.error, fetching: false });
 			});
 	};
 
@@ -99,7 +102,7 @@ class LoginPage extends React.Component {
 							<button
 								type="submit"
 								id="submit-button"
-								disabled={validateMessage}
+								disabled={validateMessage || this.state.fetching}
 							>
 								Let's Go
 							</button>
@@ -109,6 +112,8 @@ class LoginPage extends React.Component {
 						</div>
 					</fieldset>
 				</form>
+
+				{this.state.fetching && <BeerLoader message="Logging you in. Hang tight." />}
 
 				<section className="register">
 					<p>Don't have an account yet?</p>
